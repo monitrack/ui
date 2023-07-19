@@ -22,4 +22,4 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            A new PR is raised [here](https://github.com/monitrack/ui/pulls/${{ env.PR_NUMBER }})
+            A new PR is raised [here](https://github.com/monitrack/ui/pull/${{ env.PR_NUMBER }})
