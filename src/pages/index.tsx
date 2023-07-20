@@ -1,4 +1,4 @@
 const Main = () => {
-  return <div>notify1</div>;
+  return <div>notify</div>;
 };
 export default Main;
