@@ -2,8 +2,7 @@ name: Telegram notification
 
 on:
   push:
-    branches:
-      - main
+   branches: [main]
 
 jobs:
   build:
@@ -14,8 +13,8 @@ jobs:
 
       - name: Get Pull Request Number (if available)
         id: pr
-        run: echo "PR_NUMBER=$(curl -s https://api.github.com/repos/${{ github.repository }}/pulls?head=${{ github.repository }}:${{ github.ref }} | jq -r '.[0].number')" >> $GITHUB_ENV
-
+        run: echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+        
       - name: Check if Pull Request Number is available
         id: check_pr
         run: echo "PR_AVAILABLE=$(if [ -z $PR_NUMBER ]; then echo 'false'; else echo 'true'; fi)" >> $GITHUB_ENV
