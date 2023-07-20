@@ -20,7 +20,7 @@ jobs:
         run: echo "PR_NUMBER=${{ github.event.pull_request.number || '' }}" >> $GITHUB_ENV
 
       - name: Telegram Notify
-        if: env.PR_NUMBER
+        if: env.PR_NUMBER && github.event_name == 'pull_request'
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
